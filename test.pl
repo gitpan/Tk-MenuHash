@@ -9,7 +9,7 @@
 BEGIN { $| = 1; print "1..1\n"; }
 END {print "not ok 1\n" unless $loaded;}
 use Tk;
-use Tk::Tie::MenuHash;
+use Tk::MenuHash;
 $loaded = 1;
 print "ok 1\n";
 
@@ -22,7 +22,7 @@ print "ok 1\n";
 my $MW	= new MainWindow
 	or die $!;
 
-my $menu = new Tk::Tie::MenuHash ($MW->Menubutton (
+my $menu = new Tk::MenuHash ($MW->Menubutton (
 	-relief       => 'raised',
 	-text         => 'Pick something',
 	-underline    => 0,

@@ -59,9 +59,8 @@ use strict;
 use vars qw($VERSION @ISA $AUTOLOAD);
 use Carp;
 use Tk;
-use Tk::Menubutton;
 
-($VERSION)	= '$Revision: 1.11 $' =~ /\$Revision:\s+([^\s]+)/;
+($VERSION)	= '$Revision: 1.12 $' =~ /\$Revision:\s+([^\s]+)/;
 
 sub new {
 	my $class	= shift;
@@ -193,6 +192,23 @@ and talks half like an object, and half like a (tied) hash reference.  This
 is because it's both in one (it's a blessed reference to a tied hash of the
 same class).
 
+=over 4
+
+=item B<WARNING>:
+
+This is *not* a valid Tk widget as you would normally think of it.  You can
+B<not> (currently) call it as
+
+    my $menuHash = $MW->MenuHash(); ## Don't try this (yet)!
+
+The B<2.x> release will be a true widget and thus walk and talk currently as
+such.  As much as I will try and maintain this current API for future
+compatibility, this may not be entire possible.  The B<2.x> release will
+solidify this widget's API, but until then consider this API in a state of
+flux.  Thanks
+
+=back
+
 When you add a key (label) to the hash it added it to the menubutton.  The
 value assigned must be either a valid B<Tk::Menubutton> B<-command> option,
 or the string B<'default'> (case is not important).  The B<default> is
@@ -243,37 +259,16 @@ add, delete, select, and read menu options as simple hash ref keys.
 
   MainLoop;
 
-=head1 HISTORY
-
- $Log: MenuHash.pm,v $
- Revision 1.11  1998/05/05 16:20:04  byron
- 	-Changed name to Tk::MenuHash
-
- Revision 1.10  1998/04/16 02:08:46  byron
- 	-Doc changes
-
- Revision 1.4  1997/12/24 00:39:59  byron
-	-Made the 'default' string case independant
-	-Modified docs
-
- Revision 1.3  1997/12/24 00:28:28  byron
-	-Fixed class name bug
-	-Fixed DESTROY autoload problem
-
- Revision 1.2  1997/11/22 01:06:45  byron
-	-Added new() constuctor, and ability to call widget methods off the tied()
-	 value reference.
-
 =head1 AUTHOR
 
-Zenin <zenin@best.com>
+Zenin <zenin@bawdycaste.com>
 
 aka Byron Brummer <byron@omix.com>
 
 =head1 COPYRIGHT
 
-Copyright (c) 1998 OMIX, Inc.
+Copyright (c) 1998, 1999 OMIX, Inc.
 
 Available for use under the same terms as perl.
-       
+
 =cut

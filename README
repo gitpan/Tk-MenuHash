@@ -6,6 +6,18 @@
     This is because it's both in one (it's a blessed reference to a tied
     hash of the same class).
 
+    WARNING:
+        This is *not* a valid Tk widget as you would normally think of it.
+        You can not (currently) call it as
+
+            my $menuHash = $MW->MenuHash(); ## Don't try this (yet)!
+
+        The 2.x release will be a true widget and thus walk and talk
+        currently as such. As much as I will try and maintain this current
+        API for future compatibility, this may not be entire possible. The
+        2.x release will solidify this widget's API, but until then consider
+        this API in a state of flux. Thanks
+
     When you add a key (label) to the hash it added it to the menubutton.
     The value assigned must be either a valid Tk::Menubutton -command
     option, or the string 'default' (case is not important). The default is

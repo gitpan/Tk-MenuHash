@@ -1,6 +1,6 @@
      Basic perl module install:
-            gunzip -c Tk-MenuHash-1.11.tar.gz | tar -xvf -
-            cd Tk-MenuHash-1.11
+            gunzip -c Tk::MenuHash-x.xx.tar.gz | tar -xvf -
+            cd Tk::MenuHash-x.xx
             perl Makefile.pl
             make
             make test
